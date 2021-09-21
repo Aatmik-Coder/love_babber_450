@@ -1,0 +1,45 @@
+import java.util.*;
+
+class split
+{
+  public static void main(String[] args)
+  {
+    Scanner sc = new Scanner(System.in);
+    String s = sc.next();
+    System.out.println(splitTheBinary(s));
+  }
+  
+  static int splitTheBinary(String s)
+  {
+    int count = 0;
+    int count0 = 0;
+    int count1 = 0;
+    
+    for(int i = 0; i < s.length(); i++)
+    {
+      if(s.charAt(i) == '0')
+      {
+        count0++;
+      }
+      else
+      {
+        count1++;
+      }
+      if(count0 == count1)
+      {
+        count++;
+      }
+    }
+    if(count == 0)
+    {
+      return -1;
+    }
+    return count;
+  }
+}
+
+// Input ----------------> 101100111000
+// OutPut ---------------> 3
+// Explaination ---------> 10 ---------> count = 1
+                           1100 -------> count = 2
+                           111000 -----> count = 3
